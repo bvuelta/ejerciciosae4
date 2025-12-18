@@ -1,21 +1,20 @@
-# Ejercicio 4
 import os
 
 nombrearchivo = "datos.dat"
 # Contenido esperado
 esperado = b"0123456789ABCDEF"
 
-# Si el archivo no existe, lo creamos para
+# Si el archivo no existe, lo creamos
 if not os.path.exists(nombrearchivo):
     with open(nombrearchivo, "wb") as f:
         f.write(esperado)
     print(f"Archivo '{nombrearchivo}' creado con contenido de prueba.")
 
-# Abrimos el archivo en solo lectura (descriptor)
+# Abrimos el archivo en solo lectura
 fd = os.open(nombrearchivo, os.O_RDONLY)
 print(f"Descriptor abierto: {fd}")
 
-# Movemos el puntero 5 bytes desde el inicio (SEEK_SET)
+# Movemos el puntero 5 bytes desde el inicio
 offset = 5
 os.lseek(fd, offset, os.SEEK_SET)
 print(f"Puntero desplazado {offset} bytes desde el inicio.")
