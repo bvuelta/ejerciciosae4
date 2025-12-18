@@ -1,5 +1,3 @@
-# Ejercicio 3
-
 import os
 import errno
 
