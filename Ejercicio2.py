@@ -1,5 +1,3 @@
-# Ejercicio 2
-
 import os
 import errno
 
@@ -9,7 +7,7 @@ nombrearchivo = "registro.txt"
 # Flags
 flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL
 
-# Modo de permisos si se crea el archivo (rw/r/w)
+# Modo de permisos si se crea el archivo 
 mode = 0o644
 
 # Intentamos abrir el descriptor de archivo usando os.open
@@ -26,7 +24,7 @@ try:
     os.close(fd)
     print("Descriptor cerrado correctamente.")
 except OSError as e:
-    # Si el archivo ya existe y se usó O_EXCL, se mandará un error EEXIST
+    # Si el archivo ya existe, se mandará un error
     if e.errno == errno.EEXIST:
         print(f"Error: El archivo '{nombrearchivo}' ya existe. (errno.EEXIST)")
     else:
